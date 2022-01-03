@@ -15,4 +15,10 @@ public class DealListTests extends Assert{
         dealList.addContract("1", "20220103");
         assertEquals(1, dealList.getContractsCount());
     }
+    @Test
+    public void addPaymentDocument_AddPaymentDocument_ContractsCountEqualsOne(){
+        DealList dealList = DealList.create();
+        dealList.addPaymentDocument(100000, 401, "PaymentDocument", "1", "20220104");
+        assertEquals(1, dealList.getPaymentDocumentsCount());
+    }
 }
