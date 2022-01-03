@@ -10,7 +10,7 @@ public class DealList {
     public void addContract(String number, String date){
         ++contractsCount;
     }
-    public void addPaymentDocument(int sum, int num, String documentType, String number, String date){
+    public void addPaymentDocument(int sum, int num, PaymentDocumentType paymentType, String number, String date){
         ++paymentDocumentsCount;
     }
     public int getContractsCount(){
