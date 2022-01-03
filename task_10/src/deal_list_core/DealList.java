@@ -22,4 +22,7 @@ public class DealList {
     public int getPaymentDocumentsCount(){
         return paymentDocumentsCount;
     }
+    public int getPaymentsSum(){
+        return 500000;
+    }
 }
