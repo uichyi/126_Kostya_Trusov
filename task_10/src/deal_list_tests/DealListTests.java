@@ -18,15 +18,17 @@ public class DealListTests extends Assert{
     @Test
     public void addPaymentDocument_AddPaymentDocument_ContractsCountEqualsOne(){
         DealList dealList = DealList.create();
+        dealList.addContract("1", "20220104");
         dealList.addPaymentDocument(100000, 401,  PaymentDocumentType.PaymentOrder, "1", "20220104");
-        assertEquals(1, dealList.getPaymentDocumentsCount());
+        assertEquals(1, dealList.getDeals().get("1").getPaymentDocumentsCount());
     }
     @Test
     public void getSum_GetSumOfAllPaymentsWithGivenNumber_SumEquals500000(){
         DealList dealList = DealList.create();
+        dealList.addContract("1", "20220104");
         dealList.addPaymentDocument(100000, 401, PaymentDocumentType.PaymentOrder, "1", "20220104");
         dealList.addPaymentDocument(200000, 402, PaymentDocumentType.PaymentOrder, "1", "20220104");
         dealList.addPaymentDocument(200000, 403, PaymentDocumentType.BankOrder, "1", "20220104");
-        assertEquals(500000, dealList.getPaymentsSum());
+        assertEquals(500000, dealList.getDeals().get("1").getPaymentsSum());
     }
 }

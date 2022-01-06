@@ -1,28 +1,49 @@
 package deal_list_core;
 
+import java.util.HashMap;
+
 public class DealList {
-    private int contractsCount;
-    private int paymentDocumentsCount;
+
+    private HashMap<String, Deals> deals;
+
     private DealList(){
-        contractsCount = 0;
-        paymentDocumentsCount = 0;
+        deals = new HashMap<>();
     }
+
     public void addContract(String number, String date){
-        ++contractsCount;
+        if (deals.containsKey(number)){
+            System.out.println("Такой договор уже был заключен");
+        }
+        else {
+            if (number != null && String.valueOf(date).length() == 8){
+                deals.put(number, new Deals(date));
+            }
+            else {
+                System.out.println("Введите данные еще раз");
+            }
+        }
     }
-    public void addPaymentDocument(int sum, int num, PaymentDocumentType paymentType, String number, String date){
-        ++paymentDocumentsCount;
+    public void addPaymentDocument(int sum, int orderNumber, PaymentDocumentType paymentType, String contractNumber, String date){
+        if (sum > 0 && orderNumber > 0 &&  String.valueOf(date).length() == 8){
+            deals.get(contractNumber).addPaymentDocument(sum, orderNumber, paymentType, date);
+        }
+        else {
+            System.out.println("Введите данные еще раз");
+        }
     }
+
+    public HashMap<String, Deals> getDeals(){
+        return deals;
+    }
+
     public int getContractsCount(){
-        return contractsCount;
+        return deals.size();
     }
+
     public static DealList create(){
         return new DealList();
     }
-    public int getPaymentDocumentsCount(){
-        return paymentDocumentsCount;
-    }
-    public int getPaymentsSum(){
-        return 500000;
-    }
+
+
+
 }
