@@ -43,7 +43,7 @@ public class DealList {
     public static DealList create(){
         return new DealList();
     }
-
-
-
+    public int deletePayment(){
+        return 0;
+    }
 }

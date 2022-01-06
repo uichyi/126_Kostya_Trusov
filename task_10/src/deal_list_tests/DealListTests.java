@@ -31,4 +31,11 @@ public class DealListTests extends Assert{
         dealList.addPaymentDocument(200000, 403, PaymentDocumentType.BankOrder, "1", "20220104");
         assertEquals(500000, dealList.getDeals().get("1").getPaymentsSum());
     }
+    @Test
+    public void deletePayment_DeletePaymentWithGivenNumberOrderNumberAndDate_PaymentsCountEqualsZero(){
+        DealList dealList = DealList.create();
+        dealList.addContract("1","20220106");
+        dealList.addPaymentDocument(100000, 404, PaymentDocumentType.BankOrder, "1", "20220107");
+        assertEquals(0, dealList.deletePayment());
+    }
 }
