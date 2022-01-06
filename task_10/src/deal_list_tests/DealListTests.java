@@ -47,7 +47,7 @@ public class DealListTests extends Assert{
         DealList dealList = DealList.create();
         dealList.addContract("1","20220106");
         dealList.addPaymentDocument(100000, -1, PaymentDocumentType.BankOrder, "1", "20220107");
-        dealList.deletePayment(-1, "1", "20220107");
+        dealList.deletePayment(404, "1", "20220107");
         assertEquals(0, dealList.getDeals().get("1").getPaymentDocumentsCount());
     }
     @Test
@@ -61,6 +61,6 @@ public class DealListTests extends Assert{
         ListOfPayments.add(700000);
         ListOfPayments.add(800000);
         ListOfPayments.add(1000000);
-        assertEquals(25000000, dealList.getListOfPayments());
+        assertArrayEquals(ListOfPayments.toArray(), dealList.getListOfPayments().toArray());
     }
 }

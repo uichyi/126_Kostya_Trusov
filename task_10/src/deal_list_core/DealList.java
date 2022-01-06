@@ -1,6 +1,8 @@
 package deal_list_core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DealList {
 
@@ -10,13 +12,13 @@ public class DealList {
         deals = new HashMap<>();
     }
 
-    public void addContract(String number, String date){
-        if (deals.containsKey(number)){
+    public void addContract(String contractNumber, String date){
+        if (deals.containsKey(contractNumber)){
             System.out.println("Такой договор уже был заключен");
         }
         else {
-            if (number != null && String.valueOf(date).length() == 8){
-                deals.put(number, new Deals(date));
+            if (contractNumber != null && String.valueOf(date).length() == 8){
+                deals.put(contractNumber, new Deals(date));
             }
             else {
                 System.out.println("Введите данные еще раз");
@@ -51,7 +53,13 @@ public class DealList {
             System.out.println("Введите данные еще раз");
         }
     }
-    public int getListOfPayments(){
-        return 25000000;
+    public List<Integer> getListOfPayments(){
+        List<Integer> ListOfPayments = new ArrayList<>();
+        for (Deals dls : deals.values()){
+            for (PaymentDocument payDocument : dls.getPaymentDocuments().values()){
+                ListOfPayments.add(payDocument.getSum());
+            }
+        }
+        return ListOfPayments;
     }
 }
