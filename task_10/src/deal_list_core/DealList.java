@@ -44,6 +44,11 @@ public class DealList {
         return new DealList();
     }
     public void deletePayment(int orderNumber, String contractNumber, String date){
-        deals.get(contractNumber).getPaymentDocuments().remove(orderNumber);
+        if (orderNumber > 0 && contractNumber != null && String.valueOf(date).length() == 8) {
+            deals.get(contractNumber).getPaymentDocuments().remove(orderNumber);
+        }
+        else {
+            System.out.println("Введите данные еще раз");
+        }
     }
 }
