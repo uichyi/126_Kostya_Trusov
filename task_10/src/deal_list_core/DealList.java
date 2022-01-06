@@ -24,7 +24,7 @@ public class DealList {
         }
     }
     public void addPaymentDocument(int sum, int orderNumber, PaymentDocumentType paymentType, String contractNumber, String date){
-        if (sum > 0 && orderNumber > 0 &&  String.valueOf(date).length() == 8){
+        if (sum > 0 && orderNumber > 0 && String.valueOf(date).length() == 8){
             deals.get(contractNumber).addPaymentDocument(sum, orderNumber, paymentType, date);
         }
         else {
@@ -43,7 +43,7 @@ public class DealList {
     public static DealList create(){
         return new DealList();
     }
-    public int deletePayment(){
-        return 0;
+    public void deletePayment(int orderNumber, String contractNumber, String date){
+        deals.get(contractNumber).getPaymentDocuments().remove(orderNumber);
     }
 }
