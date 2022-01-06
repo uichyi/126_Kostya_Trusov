@@ -3,6 +3,9 @@ package deal_list_tests;
 import org.junit.*;
 import deal_list_core.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DealListTests extends Assert{
     @Test
     public void create_CreateEmptyDealList_ContractCountEqualsZero(){
@@ -46,5 +49,18 @@ public class DealListTests extends Assert{
         dealList.addPaymentDocument(100000, -1, PaymentDocumentType.BankOrder, "1", "20220107");
         dealList.deletePayment(-1, "1", "20220107");
         assertEquals(0, dealList.getDeals().get("1").getPaymentDocumentsCount());
+    }
+    @Test
+    public void getFull_GetFullListOfPayments_ListOfPayments(){
+        DealList dealList = DealList.create();
+        dealList.addContract("1","20220106");
+        dealList.addPaymentDocument(700000, 405, PaymentDocumentType.PaymentOrder, "1", "20220107");
+        dealList.addPaymentDocument(800000, 406, PaymentDocumentType.BankOrder, "1", "20220107");
+        dealList.addPaymentDocument(1000000, 407, PaymentDocumentType.PaymentOrder, "1", "20220107");
+        List<Integer> ListOfPayments = new ArrayList<>();
+        ListOfPayments.add(700000);
+        ListOfPayments.add(800000);
+        ListOfPayments.add(1000000);
+        assertEquals(25000000, dealList.getListOfPayments());
     }
 }

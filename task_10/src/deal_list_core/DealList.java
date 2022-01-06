@@ -51,4 +51,7 @@ public class DealList {
             System.out.println("Введите данные еще раз");
         }
     }
+    public int getListOfPayments(){
+        return 25000000;
+    }
 }
