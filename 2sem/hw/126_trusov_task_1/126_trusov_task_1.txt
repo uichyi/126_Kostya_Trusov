@@ -1,0 +1,9 @@
+DynamicArray|11|size = 1; -> size = 0;|createArray_CreateNewArray_SizeEqualsZero
+DynamicArray|15|data = new Object[capacity]; -> data = new Object[size];|setValue_SetNewValue_ValueIsCorrect
+DynamicArray|21|if(newSize > 0) -> if(newSize < 0)|resizeArray_ResizeArray_ResizeCompletes
+DynamicArray|27|newSize = size; -> size = newSize;|resizeArray_ResizeArray_ResizeCompletes
+DynamicArray|30|if(index < 0 || index > size) -> if(index < 0 || index >= size)|getIndex_GetIndexTheExactNumberAsSize_IndexOutOfBounds
+DynamicArray|35|if(index < 0 || index > size) -> if(index < 0 || index >= size)|setIndex_SetIndexTheExactNumberAsSize_IndexOutOfBounds
+
+Не выполнено:
+DynamicArray|23|if(newSize != capacity) -> if(newSize > capacity)|<имя_теста>
