@@ -37,33 +37,33 @@ public class DynamicArray<T> {
         data[index] = value;
     }
     public void insert(int index, T value) {
-        if(index < 0 || index > size)
+        if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
-        if(capacity < size) {
+        if(capacity <= size) {
             data = Arrays.copyOf(data, size * 2);
             capacity = size * 2;
         }
         for(int i = size - 1; i >= index; --i)
             data[i + 1] = data[i];
         ++size;
-        data[size] = value;
+        data[index] = value;
     }
     public void pushBack(T value) {
-        if(capacity < size) {
+        if(capacity <= size) {
             data = Arrays.copyOf(data, size * 2);
             capacity = size * 2;
         }
-        data[capacity] = value;
+        data[size] = value;
         ++size;
     }
     public void popBack() {
-        if(size < 0)
+        if(size <= 0)
             throw new UnsupportedOperationException("Array is empty");
         --size;
         data[size] = null;
     }
     public void remove(int index) {
-        if(index < 0 || index > size)
+        if(index < 0 || index >= size)
             throw new IndexOutOfBoundsException("Index out of bounds");
         for(int i = index + 1; i < size; ++i)
             data[i - 1] = data[i];

@@ -4,6 +4,13 @@ DynamicArray|21|if(newSize > 0) -> if(newSize < 0)|resizeArray_ResizeArray_Resiz
 DynamicArray|27|newSize = size; -> size = newSize;|resizeArray_ResizeArray_ResizeCompletes
 DynamicArray|30|if(index < 0 || index > size) -> if(index < 0 || index >= size)|getIndex_GetIndexTheExactNumberAsSize_IndexOutOfBounds
 DynamicArray|35|if(index < 0 || index > size) -> if(index < 0 || index >= size)|setIndex_SetIndexTheExactNumberAsSize_IndexOutOfBounds
+DynamicArray|40|if(index < 0 || index > size) -> if(index < 0 || index >= size)|insertIndex_InsertIndexTheExactNumberAsSize_IndexOutOfBounds
+DynamicArray|42|if(capacity < size) -> if(capacity <= size)|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
+DynamicArray|49|data[size] = value; -> data[index] = value;|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
+DynamicArray|52|if(capacity < size) -> if(capacity <= size)|pushBack_PushBackValue_ValueIsCorrect
+DynamicArray|56|data[capacity] = value; -> data[size] = value;|pushBack_PushBackValue_ValueIsCorrect
+DynamicArray|60|if(size < 0) -> if(size <= 0)|popBack_PopBackZeroLengthArray_ArrayIsEmpty
+DynamicArray|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|removeIndex_RemoveIndexTheExactNumberAsSize_IndexOutOfBounds
 
 Не выполнено:
 DynamicArray|23|if(newSize != capacity) -> if(newSize > capacity)|<имя_теста>
