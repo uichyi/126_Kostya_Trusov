@@ -11,6 +11,16 @@ DynamicArray|52|if(capacity < size) -> if(capacity <= size)|pushBack_PushBackVal
 DynamicArray|56|data[capacity] = value; -> data[size] = value;|pushBack_PushBackValue_ValueIsCorrect
 DynamicArray|60|if(size < 0) -> if(size <= 0)|popBack_PopBackZeroLengthArray_ArrayIsEmpty
 DynamicArray|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|removeIndex_RemoveIndexTheExactNumberAsSize_IndexOutOfBounds
+Node|13|this.next = prev; -> this.next = next;|pushFront_PushFrontThreeItems_ItemsAreCorrect
+Node|14|this.prev = next; -> this.prev = prev;|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList|11|return dummy == dummy; -> return dummy == dummy.getNext();|createList_CreateNewDoubleLinkedList_ListIsNotEmpty
+DoubleLinkedList|17|dummy.getPrev(); -> dummy.getNext();|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList|20|dummy.getNext(); -> dummy.getPrev();|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList|33|--size; -> ++size;|pushBack_PushBackItem_SizeGetsBiggerByOne
+DoubleLinkedList|41|return insertBefore(getTail(), data); -> return insertBefore(getHead(), data);|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList|44|return insertAfter(getHead(), data); -> return insertAfter(getTail(), data);|pushBack_PushBackThreeItems_ItemsAreCorrect
+
+
 
 Не выполнено:
-DynamicArray|23|if(newSize != capacity) -> if(newSize > capacity)|<имя_теста>
+DynamicArray|23|if(newSize != capacity) -> if(newSize > capacity)|<имя_теста> // если нью сайз будет меньше капасити, то капасити только уменьшится, что есть тупо

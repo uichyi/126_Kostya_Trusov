@@ -190,4 +190,107 @@ public class Task1_Tests extends Assert {
             assertEquals("Array is empty", e.getMessage());
         }
     }
+
+    @Test
+    public void popBack_PopBackNullArray_ArrayIsEmpty(){
+        DynamicArray<Integer> array = new DynamicArray<>();
+        try {
+            array.popBack();
+            fail();
+        } catch (UnsupportedOperationException e) {
+            assertEquals("Array is empty", e.getMessage());
+        }
+    }
+
+    @Test
+    public void createList_CreateNewDoubleLinkedList_SizeEqualsZero(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        assertEquals(0, list.getSize());
+    }
+
+    @Test
+    public void createList_CreateNewDoubleLinkedList_ListIsEmpty(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        assertTrue(list.isEmpty());
+    }
+
+    @Test
+    public void pushFront_PushFrontItem_ItemIsCorrect() {
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushFront(100);
+
+        Node<Integer> Head = (Node<Integer>) list.getHead();
+        Node<Integer> Tail = (Node<Integer>) list.getTail();
+
+        assertEquals(100, Head.getData().intValue());
+        assertEquals(100, Tail.getData().intValue());
+    }
+
+    @Test
+    public void pushFront_PushFrontThreeItems_ItemsAreCorrect() {
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushFront(100);
+        list.pushFront(200);
+        list.pushFront(300);
+
+        Node<Integer> Head = (Node<Integer>) list.getHead();
+        Node<Integer> Tail = (Node<Integer>) list.getTail();
+
+        assertEquals(300, Head.getData().intValue());
+        assertEquals(100, Tail.getData().intValue());
+    }
+
+    @Test
+    public void pushBack_PushBackItem_ItemIsCorrect() {
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+
+        Node<Integer> Head = (Node<Integer>) list.getHead();
+        Node<Integer> Tail = (Node<Integer>) list.getTail();
+
+        assertEquals(100, Head.getData().intValue());
+        assertEquals(100, Tail.getData().intValue());
+    }
+
+    @Test
+    public void pushBack_PushBackThreeItems_ItemsAreCorrect() {
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+        list.pushBack(200);
+        list.pushBack(300);
+
+        Node<Integer> Head = (Node<Integer>) list.getHead();
+        Node<Integer> Tail = (Node<Integer>) list.getTail();
+
+        assertEquals(100, Head.getData().intValue());
+        assertEquals(300, Tail.getData().intValue());
+    }
+
+    @Test
+    public void pushBack_PushBackItem_SizeGetsBiggerByOne(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+        list.pushBack(100);
+
+        assertEquals(2, list.getSize());
+    }
+
+    @Test
+    public void createList_CreateNewDoubleLinkedList_ListIsNotEmpty(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+
+        assertFalse(list.isEmpty());
+    }
+
+    @Test
+    public void removeItem_RemoveItemFromList_ListIsEmpty(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        Node<Integer> Item = (Node<Integer>) list.pushBack(100);
+        list.remove(Item);
+
+        assertTrue(list.isEmpty());
+    }
+
+
 }
