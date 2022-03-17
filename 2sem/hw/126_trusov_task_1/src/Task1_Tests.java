@@ -276,6 +276,15 @@ public class Task1_Tests extends Assert {
     }
 
     @Test
+    public void pushFront_PushFrontItem_SizeGetsBiggerByOne(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushFront(100);
+        list.pushFront(100);
+
+        assertEquals(2, list.getSize());
+    }
+
+    @Test
     public void createList_CreateNewDoubleLinkedList_ListIsNotEmpty(){
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
         list.pushBack(100);
