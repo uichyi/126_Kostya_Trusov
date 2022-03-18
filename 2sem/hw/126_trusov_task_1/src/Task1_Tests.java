@@ -301,5 +301,108 @@ public class Task1_Tests extends Assert {
         assertTrue(list.isEmpty());
     }
 
+    @Test
+    public void removeItem_RemoveItemFromList_ListIsNotEmpty(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        Node<Integer> Item1 = (Node<Integer>) list.pushBack(100);
+        Node<Integer> Item2 = (Node<Integer>) list.pushBack(100);
+        Node<Integer> Item3 = (Node<Integer>) list.pushBack(100);
+        list.remove(Item1);
 
+        assertFalse(list.isEmpty());
+    }
+
+    @Test
+    public void removeItem_RemoveItemFromList_ItemsAreCorrect(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        Node<Integer> Item1 = (Node<Integer>) list.pushBack(100);
+        Node<Integer> Item2 = (Node<Integer>) list.pushBack(200);
+        Node<Integer> Item3 = (Node<Integer>) list.pushBack(300);
+        list.remove(Item1);
+
+        Node<Integer> Head = (Node<Integer>) list.getHead();
+        Node<Integer> Tail = (Node<Integer>) list.getTail();
+
+        assertEquals(200, Head.getData().intValue());
+        assertEquals(300, Tail.getData().intValue());
+    }
+
+    @Test
+    public void getIndex_GetIndexSameAsSize_IndexOutOfBounds(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+        try {
+            list.get(1);
+            fail();
+        } catch (IndexOutOfBoundsException e) {
+            assertEquals("index out of bounds", e.getMessage());
+        }
+    }
+
+    @Test
+    public void getIndex_GetIndexOfItem_ItemIsCorrect(){
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+        list.pushBack(100);
+        list.pushBack(200);
+        Node<Integer> Item = (Node<Integer>) list.get(1);
+
+        assertEquals(200, Item.getData().intValue());
+    }
+
+    @Test
+    public void insertList_InsertListAfterMainList_ItemsAreCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list1.pushBack(100);
+        list1.pushBack(200);
+        list2.pushBack(300);
+        list2.pushBack(400);
+        list1.insertListAfter(list1.get(1), list2);
+
+        Node<Integer> Item1 = (Node<Integer>) list1.get(0);
+        Node<Integer> Item2 = (Node<Integer>) list1.get(1);
+        Node<Integer> Item3 = (Node<Integer>) list1.get(2);
+        Node<Integer> Item4 = (Node<Integer>) list1.get(3);
+
+        assertEquals(100, Item1.getData().intValue());
+        assertEquals(200, Item2.getData().intValue());
+        assertEquals(300, Item3.getData().intValue());
+        assertEquals(400, Item4.getData().intValue());
+    }
+
+    @Test
+    public void insertList_InsertListBeforeMainList_ItemsAreCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list1.pushBack(100);
+        list1.pushBack(200);
+        list2.pushBack(300);
+        list2.pushBack(400);
+        list1.insertListBefore(list1.get(0), list2);
+
+        Node<Integer> Item1 = (Node<Integer>) list1.get(0);
+        Node<Integer> Item2 = (Node<Integer>) list1.get(1);
+        Node<Integer> Item3 = (Node<Integer>) list1.get(2);
+        Node<Integer> Item4 = (Node<Integer>) list1.get(3);
+
+        assertEquals(300, Item1.getData().intValue());
+        assertEquals(400, Item2.getData().intValue());
+        assertEquals(100, Item3.getData().intValue());
+        assertEquals(200, Item4.getData().intValue());
+    }
+
+    @Test
+    public void insertList_InsertEmptyListAfterMainList_ItemsAreCorrect(){
+        DoubleLinkedList<Integer> list1 = new DoubleLinkedList<>();
+        DoubleLinkedList<Integer> list2 = new DoubleLinkedList<>();
+        list1.pushBack(100);
+        list1.pushBack(200);
+        list1.insertListAfter(list1.get(0), list2);
+
+        Node<Integer> Item1 = (Node<Integer>) list1.get(0);
+        Node<Integer> Item2 = (Node<Integer>) list1.get(1);
+
+        assertEquals(100, Item1.getData().intValue());
+        assertEquals(200, Item2.getData().intValue());
+    }
 }
