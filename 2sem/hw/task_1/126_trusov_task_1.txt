@@ -9,20 +9,20 @@ DynamicArray|42|if(capacity < size) -> if(capacity <= size)|insertNew_InsertNewI
 DynamicArray|49|data[size] = value; -> data[index] = value;|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
 DynamicArray|52|if(capacity < size) -> if(capacity <= size)|pushBack_PushBackValue_ValueIsCorrect
 DynamicArray|56|data[capacity] = value; -> data[size] = value;|pushBack_PushBackValue_ValueIsCorrect
-DynamicArray|60|if(size < 0) -> if(size <= 0)|popBack_PopBackZeroLengthArray_ArrayIsEmpty
 DynamicArray|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|removeIndex_RemoveIndexTheExactNumberAsSize_IndexOutOfBounds
+DynamicArray|60|if(size < 0) -> if(size <= 0)|popBack_PopBackZeroLengthArray_ArrayIsEmpty
 Node|13|this.next = prev; -> this.next = next;|pushFront_PushFrontThreeItems_ItemsAreCorrect
 Node|14|this.prev = next; -> this.prev = prev;|pushFront_PushFrontThreeItems_ItemsAreCorrect
-DoubleLinkedList|11|return dummy == dummy; -> return dummy == dummy.getNext();|createList_CreateNewDoubleLinkedList_ListIsNotEmpty
 DoubleLinkedList|17|dummy.getPrev(); -> dummy.getNext();|pushFront_PushFrontThreeItems_ItemsAreCorrect
 DoubleLinkedList|20|dummy.getNext(); -> dummy.getPrev();|pushFront_PushFrontThreeItems_ItemsAreCorrect
-DoubleLinkedList|24|if(index < 0 || index > size) -> if(index < 0 || index >= size)|getIndex_GetIndexSameAsSize_IndexOutOfBounds
-DoubleLinkedList|28|cur = cur.getPrev(); -> cur = cur.getNext();|getIndex_GetIndexOfItem_ItemIsCorrect
-DoubleLinkedList|33|--size; -> ++size;|pushBack_PushBackItem_SizeGetsBiggerByOne
 DoubleLinkedList|41|return insertBefore(getTail(), data); -> return insertBefore(getHead(), data);|pushFront_PushFrontThreeItems_ItemsAreCorrect
 DoubleLinkedList|44|return insertAfter(getHead(), data); -> return insertAfter(getTail(), data);|pushBack_PushBackThreeItems_ItemsAreCorrect
+DoubleLinkedList|33|--size; -> ++size;|pushBack_PushBackItem_SizeGetsBiggerByOne
+DoubleLinkedList|11|return dummy == dummy; -> return dummy == dummy.getNext();|createList_CreateNewDoubleLinkedList_ListIsNotEmpty
 DoubleLinkedList|47|node.getPrev().setPrev(node.getNext()); -> node.getPrev().setNext(node.getNext());|removeItem_RemoveItemFromList_ItemsAreCorrect
 DoubleLinkedList|48|node.getNext().setNext(node.getPrev()); -> node.getNext().setPrev(node.getPrev());|removeItem_RemoveItemFromList_ItemsAreCorrect
+DoubleLinkedList|24|if(index < 0 || index > size) -> if(index < 0 || index >= size)|getIndex_GetIndexSameAsSize_IndexOutOfBounds
+DoubleLinkedList|28|cur = cur.getPrev(); -> cur = cur.getNext();|getIndex_GetIndexOfItem_ItemIsCorrect
 DoubleLinkedList|55|list.getHead().setNext(node); -> list.getHead().setPrev(node);|insertList_InsertListAfterMainList_ItemsAreCorrect
 DoubleLinkedList|56|list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext());|insertList_InsertListAfterMainList_ItemsAreCorrect
 DoubleLinkedList|62|"" -> size += list.getSize();|insertList_InsertListAfterMainList_ItemsAreCorrect
