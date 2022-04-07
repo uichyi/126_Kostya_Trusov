@@ -56,10 +56,9 @@ public class DoubleLinkedList<T> {
         list.getTail().setNext(node.getNext());
         node.getNext().setPrev(list.getTail());
         node.setNext(list.getHead());
-
+        size += list.getSize();
         list.dummy.setNext(list.dummy);
         list.dummy.setPrev(list.dummy);
-        size += list.getSize();
     }
     public void insertListBefore(ListNode<T> node, DoubleLinkedList<T> list) {
         if(list.isEmpty())
@@ -68,9 +67,8 @@ public class DoubleLinkedList<T> {
         list.getTail().setNext(node);
         node.getPrev().setNext(list.getHead());
         node.setPrev(list.getTail());
-
+        size += list.getSize();
         list.dummy.setNext(list.dummy);
         list.dummy.setPrev(list.dummy);
-        size += list.getSize();
     }
 }

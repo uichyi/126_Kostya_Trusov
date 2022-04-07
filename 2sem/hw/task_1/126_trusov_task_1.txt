@@ -5,16 +5,16 @@ DynamicArray.java|27|newSize = size; -> size = newSize;|resizeArray_ResizeArray_
 DynamicArray.java|30|if(index < 0 || index > size) -> if(index < 0 || index >= size)|getIndex_GetIndexTheExactNumberAsSize_IndexOutOfBounds
 DynamicArray.java|35|if(index < 0 || index > size) -> if(index < 0 || index >= size)|setIndex_SetIndexTheExactNumberAsSize_IndexOutOfBounds
 DynamicArray.java|40|if(index < 0 || index > size) -> if(index < 0 || index >= size)|insertIndex_InsertIndexTheExactNumberAsSize_IndexOutOfBounds
-DynamicArray.java|42|if(capacity < size) -> if(capacity <= size)|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
+DynamicArray.java|42|if(capacity < size) { -> if(capacity <= size) {|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
 DynamicArray.java|49|data[size] = value; -> data[index] = value;|insertNew_InsertNewIndexWithValueInNotExistingSlot_ValueIsCorrect
-DynamicArray.java|52|if(capacity < size) -> if(capacity <= size)|pushBack_PushBackValue_ValueIsCorrect
+DynamicArray.java|52|if(capacity < size) { -> if(capacity <= size) {|pushBack_PushBackValue_ValueIsCorrect
 DynamicArray.java|56|data[capacity] = value; -> data[size] = value;|pushBack_PushBackValue_ValueIsCorrect
 DynamicArray.java|66|if(index < 0 || index > size) -> if(index < 0 || index >= size)|removeIndex_RemoveIndexTheExactNumberAsSize_IndexOutOfBounds
 DynamicArray.java|60|if(size < 0) -> if(size <= 0)|popBack_PopBackZeroLengthArray_ArrayIsEmpty
 Node.java|13|this.next = prev; -> this.next = next;|pushFront_PushFrontThreeItems_ItemsAreCorrect
 Node.java|14|this.prev = next; -> this.prev = prev;|pushFront_PushFrontThreeItems_ItemsAreCorrect
-DoubleLinkedList.java|17|dummy.getPrev(); -> dummy.getNext();|pushFront_PushFrontThreeItems_ItemsAreCorrect
-DoubleLinkedList.java|20|dummy.getNext(); -> dummy.getPrev();|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList.java|17|return dummy.getPrev(); -> return dummy.getNext();|pushFront_PushFrontThreeItems_ItemsAreCorrect
+DoubleLinkedList.java|20|return dummy.getNext(); -> return dummy.getPrev();|pushFront_PushFrontThreeItems_ItemsAreCorrect
 DoubleLinkedList.java|41|return insertBefore(getTail(), data); -> return insertBefore(getHead(), data);|pushFront_PushFrontThreeItems_ItemsAreCorrect
 DoubleLinkedList.java|44|return insertAfter(getHead(), data); -> return insertAfter(getTail(), data);|pushBack_PushBackThreeItems_ItemsAreCorrect
 DoubleLinkedList.java|33|--size; -> ++size;|pushBack_PushBackItem_SizeGetsBiggerByOne
@@ -25,7 +25,7 @@ DoubleLinkedList.java|24|if(index < 0 || index > size) -> if(index < 0 || index 
 DoubleLinkedList.java|28|cur = cur.getPrev(); -> cur = cur.getNext();|getIndex_GetIndexOfItem_ItemIsCorrect
 DoubleLinkedList.java|55|list.getHead().setNext(node); -> list.getHead().setPrev(node);|insertList_InsertListAfterMainList_ItemsAreCorrect
 DoubleLinkedList.java|56|list.getTail().setPrev(node.getNext()); -> list.getTail().setNext(node.getNext());|insertList_InsertListAfterMainList_ItemsAreCorrect
-DoubleLinkedList.java|62| -> size += list.getSize();|insertList_InsertListAfterMainList_ItemsAreCorrect
-DoubleLinkedList.java|67|list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev());|insertList_InsertListBeforeMainList_ItemsAreCorrect
-DoubleLinkedList.java|68|list.getTail().setPrev(node); -> list.getTail().setNext(node);|insertList_InsertListBeforeMainList_ItemsAreCorrect
-DoubleLinkedList.java|74| -> size += list.getSize();|insertList_InsertListBeforeMainList_ItemsAreCorrect
+DoubleLinkedList.java|59|-> size += list.getSize();|insertList_InsertListAfterMainList_ItemsAreCorrect
+DoubleLinkedList.java|66|list.getHead().setNext(node.getPrev()); -> list.getHead().setPrev(node.getPrev());|insertList_InsertListBeforeMainList_ItemsAreCorrect
+DoubleLinkedList.java|67|list.getTail().setPrev(node); -> list.getTail().setNext(node);|insertList_InsertListBeforeMainList_ItemsAreCorrect
+DoubleLinkedList.java|70|-> size += list.getSize();|insertList_InsertListBeforeMainList_ItemsAreCorrect
