@@ -19,6 +19,8 @@ x 96 x x x x x x x x x 11 x x x x x 74 x
 76 96 x x x x x x x x x 11 x x x x x 74 x
 76 96 x x x x x 45 x x x 11 x x x x x 74 x
 76 96 1 x x x x 45 x x x 11 x x x x x 74 x
+76 96 1 x x x x 45 x x x 11 x x x x x 74 x
+76 96 1 x x x x 45 x x 29 11 x x x x x 74 x
 76 96 1 x x x x 45 x x 29 11 x x x x x 74 x
 76 96 1 x x x x 45 x x 29 11 x 51 x x x 74 x
 76 96 1 40 x x x 45 x x 29 11 x 51 x x x 74 x
@@ -41,6 +43,7 @@ x x 78 x x x 6 45 84 x x x x x x x x x 18
 x x 78 x x x 6 45 84 x x x x 89 x x x x 18
 75 x 78 x x x 6 45 84 x x x x 89 x x x x 18
 75 x 78 x x x 6 45 84 x x x x 89 14 x x x 18
+75 x 78 x x x 6 45 84 x x x x 89 14 32 x x 18
 75 x 78 x x x 6 45 84 x x x x 89 14 32 x x 18
 75 x 78 x x x 6 45 84 83 x x x 89 14 32 x x 18
 75 x 78 x x x 6 45 84 83 x x x 89 14 32 x 36 18
@@ -91,6 +94,20 @@ x
 x
 
 x
+x
+x
+x
+x
+57
+x
+x
+47
+x
+x
+63
+x
+
+26
 x
 x
 x
@@ -338,6 +355,26 @@ x
 x
 
 38
+x
+x
+x
+23
+x
+x
+x
+x
+x
+x
+x
+x
+32
+x
+34
+73
+55
+x
+
+38
 1
 x
 x
@@ -444,6 +481,26 @@ x
 99 23
 x
 x
+x
+84
+x
+x
+30
+x
+32
+x
+34
+73
+55
+x
+
+38
+1
+40 78
+x
+99 23
+x
+6
 x
 84
 x
@@ -759,6 +816,26 @@ x
 x
 
 x
+77
+2
+x
+61
+x
+x
+64
+27
+66 28
+x
+87
+12
+x
+x
+72
+x
+x
+x
+
+95
 77
 2
 x
